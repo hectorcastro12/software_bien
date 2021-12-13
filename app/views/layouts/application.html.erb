@@ -6,10 +6,23 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    # <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  </head>
+    </head>
 
   <body>
-    <%= yield %>
+    <main class = "container">
+      <div class = "row">
+        <%if user_signed_in? %> 
+          <%= link_to"Cerrar Sesión", destroy_user_session_path, :method => :delete%>
+        <%end%>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= render "layouts/menu" %>
+        <%= yield %>
+        <%= render "layouts/footer" %>
+      </div>
+    </main>
   </body>
 </html>
