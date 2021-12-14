@@ -15,7 +15,7 @@
     <main class = "container">
       <div class = "row">
         <%if user_signed_in? %> 
-          <%= link_to"Cerrar Sesión", destroy_user_session_path, :method => :delete%>
+          <%= link_to"Cerrar Sesión", destroy_user_session_path, method: :delete%>
         <%end%>
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
